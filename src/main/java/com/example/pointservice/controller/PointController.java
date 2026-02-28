@@ -21,15 +21,15 @@ public class PointController {
     @PostMapping("add")
     public ResponseEntity<Void> addPonint(
             @RequestBody AddPointRequestDto addPointRequestDto
-    ){
+    ) {
         pointservice.addPoints(addPointRequestDto);
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping("deduct")
     public ResponseEntity<Void> deductPoints(
-        @RequestBody DeductPointRequestDto deductPointRequestDto
-    ){
+            @RequestBody DeductPointRequestDto deductPointRequestDto
+    ) {
         pointservice.deductPoints(deductPointRequestDto);
         return ResponseEntity.noContent().build();
     }

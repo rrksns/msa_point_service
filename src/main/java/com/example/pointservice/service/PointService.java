@@ -17,9 +17,9 @@ public class PointService {
 
 
     @Transactional
-    public void addPoints(AddPointRequestDto addPointRequestDto){
+    public void addPoints(AddPointRequestDto addPointRequestDto) {
         Point point = pointRepository.findByUserId(addPointRequestDto.getUserId())
-                .orElseGet(()-> new Point(addPointRequestDto.getUserId(), 0));
+                .orElseGet(() -> new Point(addPointRequestDto.getUserId(), 0));
 
         point.addAmount(addPointRequestDto.getAmount());
 
@@ -27,9 +27,9 @@ public class PointService {
     }
 
     @Transactional
-    public void deductPoints(DeductPointRequestDto deductPointRequestDto){
+    public void deductPoints(DeductPointRequestDto deductPointRequestDto) {
         Point point = pointRepository.findByUserId(deductPointRequestDto.getUserId())
-                .orElseThrow(()-> new IllegalArgumentException("사용자의 포인트 정보를 찾을수 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException("사용자의 포인트 정보를 찾을수 없습니다."));
 
         point.deductAmount(deductPointRequestDto.getAmount());
 

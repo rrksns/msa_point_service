@@ -3,7 +3,7 @@ package com.example.pointservice.domain;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="points")
+@Table(name = "points")
 public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,12 +32,12 @@ public class Point {
     }
 
     //포인트 적립
-    public void addAmount(int amount){
+    public void addAmount(int amount) {
         this.amount += amount;
     }
 
     //포인트 차감
-    public void deductAmount(int amount){
+    public void deductAmount(int amount) {
         this.amount -= amount;
     }
 }
